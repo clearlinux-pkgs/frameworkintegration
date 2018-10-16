@@ -5,20 +5,21 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : frameworkintegration
-Version  : 5.50.0
-Release  : 3
-URL      : https://download.kde.org/stable/frameworks/5.50/frameworkintegration-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/frameworkintegration-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/frameworkintegration-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 4
+URL      : https://download.kde.org/stable/frameworks/5.51/frameworkintegration-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/frameworkintegration-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/frameworkintegration-5.51.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
-Requires: frameworkintegration-lib
-Requires: frameworkintegration-license
-Requires: frameworkintegration-data
+Requires: frameworkintegration-data = %{version}-%{release}
+Requires: frameworkintegration-lib = %{version}-%{release}
+Requires: frameworkintegration-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : extra-cmake-modules pkgconfig(xcb) xcb-util-cursor-dev xcb-util-image-dev xcb-util-keysyms-dev xcb-util-renderutil-dev xcb-util-wm-dev xcb-util-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 # Framework Integration
@@ -36,9 +37,9 @@ data components for the frameworkintegration package.
 %package dev
 Summary: dev components for the frameworkintegration package.
 Group: Development
-Requires: frameworkintegration-lib
-Requires: frameworkintegration-data
-Provides: frameworkintegration-devel
+Requires: frameworkintegration-lib = %{version}-%{release}
+Requires: frameworkintegration-data = %{version}-%{release}
+Provides: frameworkintegration-devel = %{version}-%{release}
 
 %description dev
 dev components for the frameworkintegration package.
@@ -47,8 +48,8 @@ dev components for the frameworkintegration package.
 %package lib
 Summary: lib components for the frameworkintegration package.
 Group: Libraries
-Requires: frameworkintegration-data
-Requires: frameworkintegration-license
+Requires: frameworkintegration-data = %{version}-%{release}
+Requires: frameworkintegration-license = %{version}-%{release}
 
 %description lib
 lib components for the frameworkintegration package.
@@ -63,26 +64,26 @@ license components for the frameworkintegration package.
 
 
 %prep
-%setup -q -n frameworkintegration-5.50.0
+%setup -q -n frameworkintegration-5.51.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536449929
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539648392
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1536449929
+export SOURCE_DATE_EPOCH=1539648392
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/frameworkintegration
-cp COPYING.LGPL-2 %{buildroot}/usr/share/doc/frameworkintegration/COPYING.LGPL-2
-cp COPYING.LIB %{buildroot}/usr/share/doc/frameworkintegration/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/frameworkintegration
+cp COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/frameworkintegration/COPYING.LGPL-2
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/frameworkintegration/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -131,10 +132,10 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Style.so.5
-/usr/lib64/libKF5Style.so.5.50.0
+/usr/lib64/libKF5Style.so.5.51.0
 /usr/lib64/qt5/plugins/kf5/FrameworkIntegrationPlugin.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/frameworkintegration/COPYING.LGPL-2
-/usr/share/doc/frameworkintegration/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/frameworkintegration/COPYING.LGPL-2
+/usr/share/package-licenses/frameworkintegration/COPYING.LIB
