@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : frameworkintegration
-Version  : 5.51.0
-Release  : 4
-URL      : https://download.kde.org/stable/frameworks/5.51/frameworkintegration-5.51.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.51/frameworkintegration-5.51.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.51/frameworkintegration-5.51.0.tar.xz.sig
+Version  : 5.52.0
+Release  : 5
+URL      : https://download.kde.org/stable/frameworks/5.52/frameworkintegration-5.52.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.52/frameworkintegration-5.52.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.52/frameworkintegration-5.52.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
@@ -25,6 +25,14 @@ BuildRequires : qtbase-dev mesa-dev
 # Framework Integration
 Integration of Qt application with KDE workspaces
 ## Introduction
+
+%package abi
+Summary: abi components for the frameworkintegration package.
+Group: Default
+
+%description abi
+abi components for the frameworkintegration package.
+
 
 %package data
 Summary: data components for the frameworkintegration package.
@@ -64,14 +72,14 @@ license components for the frameworkintegration package.
 
 
 %prep
-%setup -q -n frameworkintegration-5.51.0
+%setup -q -n frameworkintegration-5.52.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1539648392
+export SOURCE_DATE_EPOCH=1541881661
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -79,7 +87,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1539648392
+export SOURCE_DATE_EPOCH=1541881661
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/frameworkintegration
 cp COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/frameworkintegration/COPYING.LGPL-2
@@ -91,6 +99,10 @@ popd
 %files
 %defattr(-,root,root,-)
 /usr/lib64/libexec/kf5/kpackagehandlers/knshandler
+
+%files abi
+%defattr(-,root,root,-)
+/usr/share/abi/libKF5Style.so.5.52.0.abi
 
 %files data
 %defattr(-,root,root,-)
@@ -132,7 +144,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Style.so.5
-/usr/lib64/libKF5Style.so.5.51.0
+/usr/lib64/libKF5Style.so.5.52.0
 /usr/lib64/qt5/plugins/kf5/FrameworkIntegrationPlugin.so
 
 %files license
