@@ -6,7 +6,7 @@
 #
 Name     : frameworkintegration
 Version  : 5.52.0
-Release  : 5
+Release  : 6
 URL      : https://download.kde.org/stable/frameworks/5.52/frameworkintegration-5.52.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.52/frameworkintegration-5.52.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.52/frameworkintegration-5.52.0.tar.xz.sig
@@ -25,14 +25,6 @@ BuildRequires : qtbase-dev mesa-dev
 # Framework Integration
 Integration of Qt application with KDE workspaces
 ## Introduction
-
-%package abi
-Summary: abi components for the frameworkintegration package.
-Group: Default
-
-%description abi
-abi components for the frameworkintegration package.
-
 
 %package data
 Summary: data components for the frameworkintegration package.
@@ -79,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541881661
+export SOURCE_DATE_EPOCH=1542735477
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -87,7 +79,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1541881661
+export SOURCE_DATE_EPOCH=1542735477
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/frameworkintegration
 cp COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/frameworkintegration/COPYING.LGPL-2
@@ -99,10 +91,6 @@ popd
 %files
 %defattr(-,root,root,-)
 /usr/lib64/libexec/kf5/kpackagehandlers/knshandler
-
-%files abi
-%defattr(-,root,root,-)
-/usr/share/abi/libKF5Style.so.5.52.0.abi
 
 %files data
 %defattr(-,root,root,-)
