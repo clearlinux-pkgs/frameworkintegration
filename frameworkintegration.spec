@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : frameworkintegration
-Version  : 5.57.0
-Release  : 14
-URL      : https://download.kde.org/stable/frameworks/5.57/frameworkintegration-5.57.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.57/frameworkintegration-5.57.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.57/frameworkintegration-5.57.0.tar.xz.sig
+Version  : 5.58.0
+Release  : 15
+URL      : https://download.kde.org/stable/frameworks/5.58/frameworkintegration-5.58.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.58/frameworkintegration-5.58.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.58/frameworkintegration-5.58.0.tar.xz.sig
 Summary  : Framework providing components to allow applications to integrate with a KDE Workspace
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-2.1
@@ -41,6 +41,7 @@ Requires: frameworkintegration-lib = %{version}-%{release}
 Requires: frameworkintegration-data = %{version}-%{release}
 Provides: frameworkintegration-devel = %{version}-%{release}
 Requires: frameworkintegration = %{version}-%{release}
+Requires: frameworkintegration = %{version}-%{release}
 
 %description dev
 dev components for the frameworkintegration package.
@@ -65,14 +66,14 @@ license components for the frameworkintegration package.
 
 
 %prep
-%setup -q -n frameworkintegration-5.57.0
+%setup -q -n frameworkintegration-5.58.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556998365
+export SOURCE_DATE_EPOCH=1557797809
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -87,7 +88,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1556998365
+export SOURCE_DATE_EPOCH=1557797809
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/frameworkintegration
 cp COPYING.LGPL-2 %{buildroot}/usr/share/package-licenses/frameworkintegration/COPYING.LGPL-2
@@ -140,7 +141,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Style.so.5
-/usr/lib64/libKF5Style.so.5.57.0
+/usr/lib64/libKF5Style.so.5.58.0
 /usr/lib64/qt5/plugins/kf5/FrameworkIntegrationPlugin.so
 
 %files license
