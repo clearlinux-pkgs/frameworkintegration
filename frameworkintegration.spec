@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : frameworkintegration
-Version  : 5.76.0
-Release  : 33
-URL      : https://download.kde.org/stable/frameworks/5.76/frameworkintegration-5.76.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.76/frameworkintegration-5.76.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.76/frameworkintegration-5.76.0.tar.xz.sig
+Version  : 5.77.0
+Release  : 34
+URL      : https://download.kde.org/stable/frameworks/5.77/frameworkintegration-5.77.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.77/frameworkintegration-5.77.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.77/frameworkintegration-5.77.0.tar.xz.sig
 Summary  : Framework providing components to allow applications to integrate with a KDE Workspace
 Group    : Development/Tools
 License  : LGPL-2.0 LGPL-3.0
@@ -75,15 +75,15 @@ license components for the frameworkintegration package.
 
 
 %prep
-%setup -q -n frameworkintegration-5.76.0
-cd %{_builddir}/frameworkintegration-5.76.0
+%setup -q -n frameworkintegration-5.77.0
+cd %{_builddir}/frameworkintegration-5.77.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1605422224
+export SOURCE_DATE_EPOCH=1608167692
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -99,14 +99,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1605422224
+export SOURCE_DATE_EPOCH=1608167692
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/frameworkintegration
-cp %{_builddir}/frameworkintegration-5.76.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/frameworkintegration-5.76.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/frameworkintegration-5.76.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/frameworkintegration-5.76.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/frameworkintegration-5.76.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/frameworkintegration-5.77.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/frameworkintegration-5.77.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/frameworkintegration-5.77.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/frameworkintegration-5.77.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/frameworkintegration-5.77.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/frameworkintegration/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -155,7 +155,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Style.so.5
-/usr/lib64/libKF5Style.so.5.76.0
+/usr/lib64/libKF5Style.so.5.77.0
 /usr/lib64/qt5/plugins/kf5/FrameworkIntegrationPlugin.so
 
 %files license
