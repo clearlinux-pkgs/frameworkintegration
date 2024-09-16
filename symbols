@@ -1,19 +1,3 @@
-libKF6Style.so.6:KStyle::qt_metacall(QMetaObject::Call, int, void**)
-libKF6Style.so.6:KStyle::qt_metacast(char const*)
-libKF6Style.so.6:KStyle::newStyleHint(QString const&)
-libKF6Style.so.6:KStyle::newSubElement(QString const&)
-libKF6Style.so.6:KStyle::customStyleHint(QString const&, QWidget const*)
-libKF6Style.so.6:KStyle::customSubElement(QString const&, QWidget const*)
-libKF6Style.so.6:KStyle::newControlElement(QString const&)
-libKF6Style.so.6:KStyle::customControlElement(QString const&, QWidget const*)
+libKF6Style.so.6:KStyle::KStyle()
 libKF6Style.so.6:KStyle::polish(QWidget*)
-libKF6Style.so.6:KStyle::KStyle()
-libKF6Style.so.6:KStyle::KStyle()
 libKF6Style.so.6:KStyle::~KStyle()
-libKF6Style.so.6:KStyle::~KStyle()
-libKF6Style.so.6:KStyle::~KStyle()
-libKF6Style.so.6:KStyle::metaObject() const
-libKF6Style.so.6:KStyle::pixelMetric(QStyle::PixelMetric, QStyleOption const*, QWidget const*) const
-libKF6Style.so.6:KStyle::standardIcon(QStyle::StandardPixmap, QStyleOption const*, QWidget const*) const
-libKF6Style.so.6:KStyle::standardPalette() const
-libKF6Style.so.6:KStyle::styleHint(QStyle::StyleHint, QStyleOption const*, QWidget const*, QStyleHintReturn*) const
